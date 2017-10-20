@@ -2,18 +2,6 @@
 
 /* Frequency of <note><octave> in hertz rounded to the nearest int - .5 is rounded up */
 
-// Could just calculate OCR value here, and force user to include avr_config with F_CPU and prescaler
-
-/* Make a setup function for this music library that includes all notes and calculates ocr_val with some parameters:
-   - PWM type - determines calculation done - e.g. CTC, Fast PWM, Phase correct
-   - Prescaler
-   - Note frequency
-   
-   A song is a series of Song_Notes
-                           --- struct Note note;
-                           --- uint16_t duration_ms;
-*/
-
 struct Note C8 = {.freq_hz = 4186, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 4186)};
 struct Note CSHARP8 = {.freq_hz = 4435, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 4435)};
 struct Note D8 = {.freq_hz = 4699, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 4699)};

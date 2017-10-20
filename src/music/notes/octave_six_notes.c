@@ -2,15 +2,15 @@
 
 /* Frequency of <note><octave> in hertz rounded to the nearest int - .5 is rounded up */
 
-const uint16_t C6 = 1047;
-const uint16_t CSHARP6 = 1109;
-const uint16_t D6 = 1175;
-const uint16_t DSHARP6 = 1245;
-const uint16_t E6 = 1319;
-const uint16_t F6 = 1397;
-const uint16_t FSHARP6 = 1480;
-const uint16_t G6 = 1568;
-const uint16_t GSHARP6 = 1661;
-const uint16_t A6 = 1760;
-const uint16_t ASHARP6 = 1865;
-const uint16_t B6 = 1976;
+struct Note C6 = {.freq_hz = 1047, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 1047)};
+struct Note CSHARP6 = {.freq_hz = 1109, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 1109)};
+struct Note D6 = {.freq_hz = 1175, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 1175)};
+struct Note DSHARP6 = {.freq_hz = 1245, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 1245)};
+struct Note E6 = {.freq_hz = 1319, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 1319)};
+struct Note F6 = {.freq_hz = 1397, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 1397)};
+struct Note FSHARP6 = {.freq_hz = 1480, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 1480)};
+struct Note G6 = {.freq_hz = 1568, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 1568)};
+struct Note GSHARP6 = {.freq_hz = 1661, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 1661)};
+struct Note A6 = {.freq_hz = 1760, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 1760)};
+struct Note ASHARP6 = {.freq_hz = 1865, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 1865)};
+struct Note B6 = {.freq_hz = 1976, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 1976)};

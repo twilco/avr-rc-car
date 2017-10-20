@@ -109,6 +109,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\music" />
+    <Folder Include="src\music\types" />
     <Folder Include="src\music\notes" />
     <Folder Include="test" />
     <Folder Include="src" />
@@ -187,6 +188,15 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\music\notes\octave_zero_notes.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\music\notes_util_macros.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\music\types\note.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\music\types\note_type.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\util\avr_util.c">

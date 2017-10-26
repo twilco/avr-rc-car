@@ -2,25 +2,26 @@
 #define OCTAVE_FOUR_NOTES_H_
 
 #include "../notes_util_macros.h"
-#include "../types/note.h"
 #include "../../avr_config.h"
 
 /* 
-   - Pattern is note, octave - Note C octave 4 is C4
-   - Please note that I've rounded these notes to the nearest int, so if you need exact frequencies look elsewhere.
+    - Frequency of <note><octave> in hertz is rounded to the nearest int - .5 is rounded up
+    - Unfortunately our Note structs need to be #define'd like this in order for C to recognize it as a compile-time
+      constant in a Song_Note (or whatever other struct consumes it)...
+    - Specifically, it avoids an "initializer element is not constant" compiler error.
 */
 
-extern struct Note C4;
-extern struct Note CSHARP4;
-extern struct Note D4;
-extern struct Note DSHARP4;
-extern struct Note E4;
-extern struct Note F4;
-extern struct Note FSHARP4;
-extern struct Note G4;
-extern struct Note GSHARP4;
-extern struct Note A4;
-extern struct Note ASHARP4;
-extern struct Note B4;
+#define C4_INIT { .freq_hz = (uint16_t) 262, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 262) }
+#define CSHARP4_INIT { .freq_hz = (uint16_t) 277, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 277) }
+#define D4_INIT { .freq_hz = (uint16_t) 294, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 294) }
+#define DSHARP4_INIT { .freq_hz = (uint16_t) 311, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 311) }
+#define E4_INIT { .freq_hz = (uint16_t) 330, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 330) }
+#define F4_INIT { .freq_hz = (uint16_t) 349, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 349) }
+#define FSHARP4_INIT { .freq_hz = (uint16_t) 370, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 370) }
+#define G4_INIT { .freq_hz = (uint16_t) 392, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 392) }
+#define GSHARP4_INIT { .freq_hz = (uint16_t) 415, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 415) }
+#define A4_INIT { .freq_hz = (uint16_t) 440, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 440) }
+#define ASHARP4_INIT { .freq_hz = (uint16_t) 466, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 466) }
+#define B4_INIT { .freq_hz = (uint16_t) 494, .ocr_val = CALC_CTC_FREQ(F_CPU, TIMER1_PRESCALER, 494) }
 
 #endif /* OCTAVE_FOUR_NOTES_H_ */

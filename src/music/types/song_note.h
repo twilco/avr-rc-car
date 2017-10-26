@@ -4,7 +4,7 @@
 #include "note.h"
 
 struct Song_Note {
-    Note note;
+    struct Note note;
     uint16_t duration_ms;
 } Song_Note;
 

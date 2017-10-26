@@ -7,8 +7,8 @@ int main(void)
 {
     
     DDRB = (1 << PINB1);
-    sei();
     
+    sei();
     /* Set OCIEA to enable Timer1 OCR1A compare match interrupts */
     TIMSK1 = (1 << TOIE1) | (1 << OCIE1A);
 

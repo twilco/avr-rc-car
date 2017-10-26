@@ -109,6 +109,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="src\music" />
+    <Folder Include="src\music\songs" />
     <Folder Include="src\music\types" />
     <Folder Include="src\music\notes" />
     <Folder Include="test" />
@@ -130,61 +131,34 @@
     <Compile Include="src\main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\music\notes\octave_eight_notes.c">
+    <Compile Include="src\music\notes\general_notes.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\music\notes\octave_eight_notes.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\music\notes\octave_five_notes.c">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\music\notes\octave_five_notes.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\music\notes\octave_four_notes.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\music\notes\octave_four_notes.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\music\notes\octave_nine_notes.c">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\music\notes\octave_nine_notes.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\music\notes\octave_one_notes.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\music\notes\octave_one_notes.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\music\notes\octave_seven_notes.c">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\music\notes\octave_seven_notes.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\music\notes\octave_six_notes.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\music\notes\octave_six_notes.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\music\notes\octave_three_notes.c">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\music\notes\octave_three_notes.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\music\notes\octave_two_notes.c">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\music\notes\octave_two_notes.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\music\notes\octave_zero_notes.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\music\notes\octave_zero_notes.h">
@@ -193,10 +167,19 @@
     <Compile Include="src\music\notes_util_macros.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\music\songs\one_thousand_miles.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\music\songs\one_thousand_miles.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\music\types\note.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\music\types\note_type.h">
+    <Compile Include="src\music\types\song.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\music\types\song_note.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\util\avr_util.c">

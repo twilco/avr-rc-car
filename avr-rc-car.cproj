@@ -108,10 +108,12 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\music" />
-    <Folder Include="src\music\songs" />
-    <Folder Include="src\music\types" />
-    <Folder Include="src\music\notes" />
+    <Folder Include="src\constants" />
+    <Folder Include="src\music\" />
+    <Folder Include="src\music\notes\" />
+    <Folder Include="src\music\songs\" />
+    <Folder Include="src\music\types\" />
+    <Folder Include="src\types" />
     <Folder Include="test" />
     <Folder Include="src" />
     <Folder Include="src\util" />
@@ -126,6 +128,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\avr_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\constants\packet_constants.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\constants\packet_constants.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\main.c">
@@ -180,6 +188,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\music\types\song_note.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\types\packet.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\util\avr_util.c">

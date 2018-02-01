@@ -7,7 +7,7 @@
 #include <stdbool.h>
 
 struct Packet {
-    char data[PACKET_SIZE];
+    char data[NUM_DATA_BYTES];
     uint8_t open_idx;
     bool is_valid;
 } Packet;

@@ -69,7 +69,7 @@ ISR(USART_RX_vect)
     if(packet_start_found) {
         // If we've already found a START_CHAR, this byte must be a data or checksum byte.
         uint8_t current_byte_num = (tmp_packet.open_idx + 1);
-        if(current_byte_num > PACKET_SIZE) {
+        if(current_byte_num > DATA_AND_CHECKSUM_SIZE) {
             //something is wrong here - let's reset and try to recover
             soft_reset();
         } else if(current_byte_num == CHECKSUM_BYTE_POS) {
@@ -84,10 +84,9 @@ ISR(USART_RX_vect)
                 tmp_packet.is_valid = true;
                 packets_to_process[packet_queue_open_idx] = tmp_packet;
                 packet_queue_open_idx = increment_or_wrap(packet_queue_open_idx, PACKET_QUEUE_SIZE);
-            } else {
-                // Checksum didn't match - must be an invalid packet
-                reinit_packet(&tmp_packet);
             }
+            // If our checksum didn't match, we must have an invalid packet.  Let's start over.
+            reinit_packet(&tmp_packet);
             packet_start_found = false;
         } else {
             // If we haven't reached the checksum byte yet, this must be a data byte.
@@ -110,7 +109,7 @@ uint8_t increment_or_wrap(uint8_t idx, uint8_t arr_size)
 {
     // if the index is one less than the array size, incrementing it pushes it out of bounds  
     // let's wrap the index to the beginning spot
-    if(idx == (arr_size - 1)) {
+    if(idx >= (arr_size - 1)) {
         return 0;
     }
     return (idx + 1);
@@ -121,7 +120,7 @@ void process_packet(volatile struct Packet packets[])
     for(uint8_t i = 0; i < PACKET_QUEUE_SIZE; i++) {
         if(packets[i].is_valid) {
             //do something with the valid data
-            for(int j = 0; j < PACKET_SIZE; j++) {
+            for(int j = 0; j < NUM_DATA_BYTES; j++) {
                 usart_transmit(packets[i].data[j]);
             }
           
@@ -133,7 +132,7 @@ void process_packet(volatile struct Packet packets[])
 
 void reinit_packet(volatile struct Packet* packet)
 {
-    for(uint8_t i = 0; i < PACKET_SIZE; i++) {
+    for(uint8_t i = 0; i < NUM_DATA_BYTES; i++) {
         packet->data[i] = 0;
     }
     packet->is_valid = false;

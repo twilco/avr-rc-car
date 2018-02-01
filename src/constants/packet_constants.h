@@ -4,13 +4,13 @@
 #include <stdint.h>
 
 /* The number of bytes we're expecting to receive in the data portion of our packet. */
-#define NUM_DATA_BYTES (uint8_t) 5
+#define NUM_DATA_BYTES (uint8_t) 4
 
 /* The number of bytes reserved for the checksum portion of our packet. */
 #define NUM_CHECKSUM_BYTES (uint8_t) 1
 
-/* The maximum amount of data we expect to receive for a packet. */
-#define PACKET_SIZE (uint8_t) (NUM_DATA_BYTES + NUM_CHECKSUM_BYTES)
+/* The sum of our data and checksum sizes. */
+#define DATA_AND_CHECKSUM_SIZE (uint8_t) (NUM_DATA_BYTES + NUM_CHECKSUM_BYTES)
 
 /* Size of the packets-to-process queue. */
 #define PACKET_QUEUE_SIZE (uint8_t) 5
